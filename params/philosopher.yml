@@ -20,13 +20,13 @@ slackUserID:                                     # specify a user ID for a direc
 
 Steps:
   Database Search: yes                           # peptide to spectrum matching with Comet or MSFragger
-  Peptide Validation: no                         # peptide assignment validation with PeptideProphet
-  PTM Localization: no                           # PTM site localization with PTMProphet
-  Protein Inference: yes                         # protein identification validation with ProteinProphet
+  Peptide Validation: yes                         # peptide assignment validation with PeptideProphet
+  PTM Localization: yes                           # PTM site localization with PTMProphet
+  Protein Inference: no                          # protein identification validation with ProteinProphet
   Label-Free Quantification: no                  # precursor label-free quantification inspired by moFF
   Isobaric Quantification: no                    # isobaric labeling-based relative quantification for TMT and iTRAQ
   Bio Cluster Quantification: no                 # protein report based on Uniprot protein clusters
-  FDR Filtering: yes                             # statistical filtering, validation and false discovery rates assessment
+  FDR Filtering: no                              # statistical filtering, validation and false discovery rates assessment
   Individual Reports: no                         # multi-level reporting for both narrow-searches and open-searches
   Integrated Reports: no                         # combined analysis of LC-MS/MS results inspired by Abacus
   Integrated Isobaric Quantification: yes        # integrates channel abundances from multiple isobaric-tagged samples with TMT-Integrator                        
@@ -41,9 +41,9 @@ Database Search:                                 # MSFragger-3.4 & Comet v201901
     param:                                       # comet parameter file (default "comet.params.txt")
     extension: mzML                              # format of the spectra file
   msfragger:                                     # MSFragger v3.3
-    path: /data/MSFragger-3.4/MSFragger-3.4.jar                                       # path to MSFragger jar
-    memory: 8                                    # how much memory in GB to use
-    param:                                       # MSFragger parameter file
+    path: /data/bin/MSFragger-3.4.jar                                       # path to MSFragger jar
+    memory: 10                                    # how much memory in GB to use
+    param: /data/params/fragger.params           # MSFragger parameter file
     extension: mzML                              # spectra format
     num_threads: 0                               # number of CPU threads to use. 0=poll CPU to set num threads
     precursor_mass_lower: -20                    # lower bound of the precursor mass window
@@ -277,8 +277,8 @@ Integrated Reports:                              # Abacus
   reprint: false                                 # create abacus reports using the Reprint format
 
 Integrated Isobaric Quantification:              # TMT-Integrator v3.2.0
-  path: /data/TMTIntegrator-v3.1.0.jar           # path to TMT-Integrator jar
-  memory: 6                                      # memory allocation, in Gb
+  path: /data/bin/TMTIntegrator-v3.1.0.jar       # path to TMT-Integrator jar
+  memory: 12                                     # memory allocation, in Gb
   output:                                        # the location of output files
   channel_num: 10                                # number of channels in the multiplex (e.g. 10, 11)
   ref_tag: Bridge                                # unique tag for identifying the reference channel (Bridge sample added to each multiplex)
